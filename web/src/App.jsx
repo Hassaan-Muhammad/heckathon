@@ -40,7 +40,8 @@ function App() {
 
 
   useEffect(() => {
-
+    const admin= "admin@aa.com"
+ 
 
     const getProfile = async () => {
 
@@ -48,10 +49,21 @@ function App() {
         let response = await axios.get(`${state.baseUrl}/profile`, {
           withCredentials: true
         })
-        dispatch({
-          type: 'USER_LOGIN',
-          payload: response.data
-        })
+        // dispatch({
+        //   type: 'USER_LOGIN',
+        //   payload: response.data
+        // })
+        if (response.data.profile.email === admin) {
+          dispatch({
+              type: 'USER_ADMIN',
+              payload: response.data.profile
+          })
+      } else {
+          dispatch({
+              type: 'USER_LOGIN',
+              payload: response.data.profile
+          })
+      }
       } catch (error) {
         dispatch({
           type: 'USER_LOGOUT'
@@ -93,15 +105,16 @@ function App() {
 
   return (
     <div>
+       
 
       {
-        (state.isLogin === true) ?
+        (state.isLogin === 1) ?
           <nav className='navBar'>
-            <ul >
+            <ul > 
               <li> <Link to={`/`}>Home</Link> </li>
-              <li> <Link to={`/gallery`}>Gallery</Link> </li>
-              <li> <Link to={`/about`}>About</Link> </li>
-              <li> {state.user.firstName} <button onClick={logoutHandler}>Logout</button> </li>
+              <li> <Link to={`/gallery`}>Add itmes</Link> </li>
+              <li> <Link to={`/about`}>Account</Link> </li>
+              {/* <li> {state.user.firstName} <button onClick={logoutHandler}>Logout</button> </li> */}
             </ul>
           </nav>
           : null}
@@ -117,7 +130,7 @@ function App() {
           : null
       }
 
-      {(state.isLogin === true) ?
+      {(state.isLogin === 1) ?
 
         <Routes>
           <Route path="/" element={<Home />} />

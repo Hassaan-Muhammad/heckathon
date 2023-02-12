@@ -17,6 +17,8 @@ function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const admin= "admin@aa.com"
+
 
     const loginHandler = async (e) => {
         e.preventDefault();
@@ -30,11 +32,22 @@ function Login() {
                 withCredentials: true
             })
 
-            dispatch({
-                type: 'USER_LOGIN',
-                payload: response.data.profile
-            })
-
+            // dispatch({
+            //     type: 'USER_LOGIN',
+            //     payload: response.data.profile
+            // })
+            if (response.data.profile.email === admin) {
+                dispatch({
+                    type: 'USER_ADMIN',
+                    payload: response.data.profile
+                })
+            } else {
+                dispatch({
+                    type: 'USER_LOGIN',
+                    payload: response.data.profile
+                })
+            }
+            
             console.log("Login successful");
             setResult("Login successful")
 

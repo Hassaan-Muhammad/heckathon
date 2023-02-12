@@ -5,6 +5,11 @@ export const reducer = (state, action) => {
       case "USER_LOGIN": {
         return { ...state, isLogin: true , user: action.payload };
       }
+
+      case "USER_ADMIN": {
+        return { ...state, isLogin: 1 , user: action.payload };
+      }
+
       case "USER_LOGOUT": {
         return { ...state, isLogin: false } // set this to null on purpose, do not change
       }
