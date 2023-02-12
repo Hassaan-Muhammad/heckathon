@@ -14,7 +14,7 @@ import Login from "./components/login";
 import Signup from "./components/signup";
 
 // let see
-
+// check please
 function App() {
 
   let { state, dispatch } = useContext(GlobalContext);
