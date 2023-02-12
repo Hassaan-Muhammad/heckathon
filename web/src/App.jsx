@@ -12,6 +12,7 @@ import About from "./components/about";
 import Gallery from "./components/gallery";
 import Login from "./components/login";
 import Signup from "./components/signup";
+import Front from "./components/front";
 
 // let see
 // check please
@@ -129,6 +130,9 @@ function App() {
       {(state.isLogin === false) ?
         <Routes>
           <Route path="/" element={<Login />} />
+
+          {/* <Route path="/" element={<Front />} /> */}
+
           <Route path="signup" element={<Signup />} />
           <Route path="*" element={<Navigate to="/" replace={true} />} />
         </Routes>

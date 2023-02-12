@@ -23,7 +23,13 @@ export const userModel = mongoose.model('Users', userSchema);
 
 
 const mongodbURI = process.env.mongodbURI ||
- "mongodb+srv://saad:sdsdsd@cluster0.9bemtsg.mongodb.net/ecommerce?retryWrites=true&w=majority";
+ "mongodb+srv://heck:heck123@cluster0.oud3rz1.mongodb.net/?retryWrites=true&w=majority"
+
+// working
+//  "mongodb+srv://saad:sdsdsd@cluster0.9bemtsg.mongodb.net/ecommerce?retryWrites=true&w=majority";
+
+ //new also working
+ //mongodb+srv://heck:heck123@cluster0.oud3rz1.mongodb.net/?retryWrites=true&w=majority
 
 //  "mongodb+srv://dbuser:dbpassword@cluster0.gq9n2zr.mongodb.net/abcdatabase?retryWrites=true&w=majority";
 

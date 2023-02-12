@@ -1,5 +1,7 @@
 import { useState, useContext } from "react";
 import { GlobalContext } from '../context/Context';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye ,faEnvelope} from "@fortawesome/free-solid-svg-icons";
 
 import axios from 'axios';
 import './login.css'
@@ -47,42 +49,50 @@ function Login() {
 
     return (
         <>
-            <h4>This is Login page</h4>
+            <div className="loginhead">
+                <h1>SAYLANI WELFARE</h1>
+                <h4>ONLINE DISCOUNT STORE</h4>
+            </div>
 
             {state.text}
 
             <form onSubmit={loginHandler} className="loginForm">
 
-
-                <textarea
-                    className="TextField"
-                    id="email"
-                    label="Email"
-                    variant="outlined"
-                    type="email"
-                    name="username"
-                    placeholder="email"
-                    autoComplete="username"
-                    onChange={(e) => { setEmail(e.target.value) }}
-                />
-
-
-                <br />
-
-                <textarea
-                    className="TextField"
-                    id="password"
-                    label="Password"
-                    variant="outlined"
-                    type="password"
-                    name="current-password"
-                    autoComplete="current-password"
-                    placeholder="password"
-                    onChange={(e) => { setPassword(e.target.value) }}
-                />
+                <div className="emaildiv">
+                    <input
+                        className="TextField"
+                        id="email"
+                        label="Email"
+                        variant="outlined"
+                        type="email"
+                        name="username"
+                        placeholder="Email"
+                        autoComplete="username"
+                        onChange={(e) => { setEmail(e.target.value) }}
+                    />
+                <FontAwesomeIcon className="icon" icon={faEnvelope} />
+                    
+                </div>
 
                 <br />
-                <button type="submit">Login</button>
+
+                <div className="passdiv">
+                    <input
+                        className="TextField"
+                        id="password"
+                        label="Password"
+                        variant="outlined"
+                        type="password"
+                        name="current-password"
+                        autoComplete="current-password"
+                        placeholder="Password"
+                        onChange={(e) => { setPassword(e.target.value) }}
+                    />
+                    <FontAwesomeIcon className="icon" icon={faEye} />
+                </div>
+
+                <br />
+                <button className="loginButton" type="submit">Login</button>
 
             </form>
 
