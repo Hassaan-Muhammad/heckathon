@@ -7,6 +7,8 @@ import './signup.css'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye ,faUser ,faEnvelope, faPhone} from "@fortawesome/free-solid-svg-icons";
+import { Link} from "react-router-dom";
+
 
 
 function Signup() {
@@ -80,6 +82,9 @@ function Signup() {
                 <br />
 
                
+                {(state.isLogin === false) ?
+                    <p className='textinSignup'>Already have an account? <Link className="a" to={`/login`}>Login</Link>
+                    </p> : null}
 
                 <button className="signupButton" type="submit">Signup</button>
             </form>

@@ -1,5 +1,7 @@
 import './front.css'
 import img from './img/silayni.png'
+import { Link} from "react-router-dom";
+
 
 function front() {
 
@@ -11,11 +13,11 @@ function front() {
             </div>
 
             <div className="Mainhead">
-                <h1>SAYLANI WELFARE</h1>
+                <h1 className='himg'>SAYLANI WELFARE</h1>
                 <h4>ONLINE DISCOUNT STORE</h4>
             </div>
 
-            <button className="startButton" type="submit">Get started</button>
+            <Link to={`/login`}>  <button className="startButton" type="submit">Get started</button> </Link>
 
 
 

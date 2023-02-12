@@ -2,6 +2,8 @@ import { useState, useContext } from "react";
 import { GlobalContext } from '../context/Context';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye ,faEnvelope} from "@fortawesome/free-solid-svg-icons";
+import { Link} from "react-router-dom";
+
 
 import axios from 'axios';
 import './login.css'
@@ -106,6 +108,9 @@ function Login() {
 
                 <br />
                 <button className="loginButton" type="submit">Login</button>
+                {(state.isLogin === false) ?
+                    <p className='textinlogin'>Don't have an account? <Link className="a" to={`/signup`}>Register</Link>
+                    </p> : null}
 
             </form>
 

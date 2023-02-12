@@ -3,6 +3,8 @@
 }
 .mainImg{
     margin-left: 50px;
+    margin-top: 120px;
+
 }
 .startButton{
     background-color: rgb(97, 184, 70);
@@ -11,4 +13,7 @@
     height: 30px;
     border-radius: 10px;
     margin-left: 100px;
+}
+.himg{
+    margin-top: -10px;
 }

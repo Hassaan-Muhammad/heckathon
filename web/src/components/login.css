@@ -18,6 +18,7 @@
 }
 h1{
 color: rgb(97, 184, 70);
+margin-top: 150px;
 }
 h4{
     color: rgb(34, 101, 169) ;
@@ -38,4 +39,11 @@ h4{
 
 .icon{
     color: lightgray;
+}
+
+.textinlogin{
+    margin-left: 25px;
+    color: rgb(34, 101, 169) ;
+   
+
 }

@@ -136,7 +136,7 @@ function App() {
           </nav>
           : null}
 
-      {
+      {/* {
         (state.isLogin === false) ?
           <nav className='navBar'>
             <ul >
@@ -145,7 +145,7 @@ function App() {
             </ul>
           </nav>
           : null
-      }
+      } */}
 
       {(state.isLogin === 1) ?
         // adminroute
@@ -172,8 +172,8 @@ function App() {
 
       {(state.isLogin === false) ?
         <Routes>
-          <Route path="/" element={<Login />} />
-          {/* <Route path="/" element={<Front />} /> */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Front />} />
           <Route path="signup" element={<Signup />} />
           <Route path="*" element={<Navigate to="/" replace={true} />} />
         </Routes>
