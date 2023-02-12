@@ -201,19 +201,20 @@ function Home() {
 
       <div >
         {products.map((eachProduct, i) => (
-          <div key={eachProduct._id} style={{ border: "1px solid black", padding: 10, margin: 10, borderRadius: 15 }}>
-            <h2>{eachProduct.name}</h2>
+          <div className='productdiv' key={eachProduct._id} style={{ border: "1px solid black", padding: 10, margin: 10, borderRadius: 15 }}>
+            <h2 className='productName'>{eachProduct.name}</h2>
             {/* <p>{eachProduct._id}</p> */}
-            <h5 className='price'>{eachProduct.price}</h5>
-            <p>{eachProduct.description}</p>
+            <h5  className='productPrice'>Rs.{eachProduct.price}</h5>
+            <p className='productDes'>Product description:  {eachProduct.description}</p>
 
-            <button onClick={() => {
+            <button className='deletebutton' onClick={() => {
               deleteProduct(eachProduct._id)
-            }}>delete</button>
+            }}>DELETE</button> 
 
-            <button onClick={() => {
+
+            <button className='editbutton' onClick={() => {
               editMode(eachProduct)
-            }}>edit</button>
+            }}>EDIT</button>
 
             {(isEditMode && editingProduct._id === eachProduct._id) ?
               <div>

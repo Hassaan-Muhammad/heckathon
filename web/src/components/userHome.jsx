@@ -29,11 +29,11 @@ function Userhome() {
     return(
         <div >
         {products.map((eachProduct, i) => (
-          <div key={eachProduct._id} style={{ border: "1px solid black", padding: 10, margin: 10, borderRadius: 15 }}>
-            <h2>{eachProduct.name}</h2>
+          <div className='productdiv' key={eachProduct._id} style={{ border: "1px solid black", padding: 10, margin: 10, borderRadius: 15 }}>
+            <h2 className='productName'>{eachProduct.name}</h2>
             {/* <p>{eachProduct._id}</p> */}
-            <h5 className='price'>{eachProduct.price}</h5>
-            <p>{eachProduct.description}</p>
+            <h5 className='productPrice'>Rs.{eachProduct.price}</h5>
+            <p className='productDes'>Product description:  {eachProduct.description}</p>
           </div>
         ))}
       </div>

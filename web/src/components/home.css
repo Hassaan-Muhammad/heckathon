@@ -1,4 +1,19 @@
-.price{
-    text-align: end;
-    display: flex
+.productName{
+color: rgb(97, 184, 70);
+}
+.productPrice{
+    color: gray;
+}
+.deletebutton{
+    color: rgb(97, 184, 70);
+    border-radius: 5px;
+}
+.editbutton{
+    color: rgb(97, 184, 70);
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.productDes{
+    color: gray;
 }
