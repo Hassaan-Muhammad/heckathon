@@ -13,6 +13,9 @@ import Gallery from "./components/gallery";
 import Login from "./components/login";
 import Signup from "./components/signup";
 import Front from "./components/front";
+import Userhome from "./components/userHome";
+import Usercart from "./components/userCart";
+import Userabout from "./components/userAbout";
 
 // let see
 // check please
@@ -40,8 +43,8 @@ function App() {
 
 
   useEffect(() => {
-    const admin= "admin@aa.com"
- 
+    const admin = "admin@aa.com"
+
 
     const getProfile = async () => {
 
@@ -55,15 +58,15 @@ function App() {
         // })
         if (response.data.profile.email === admin) {
           dispatch({
-              type: 'USER_ADMIN',
-              payload: response.data.profile
+            type: 'USER_ADMIN',
+            payload: response.data.profile
           })
-      } else {
+        } else {
           dispatch({
-              type: 'USER_LOGIN',
-              payload: response.data.profile
+            type: 'USER_LOGIN',
+            payload: response.data.profile
           })
-      }
+        }
       } catch (error) {
         dispatch({
           type: 'USER_LOGOUT'
@@ -78,7 +81,7 @@ function App() {
     // Add a request interceptor
     axios.interceptors.request.use(function (config) {
       // Do something before request is sent
-      config.withCredentials= true;
+      config.withCredentials = true;
       return config;
     }, function (error) {
       // Do something with request error
@@ -105,12 +108,26 @@ function App() {
 
   return (
     <div>
-       
+      {/* for user */}
+      {
+        (state.isLogin === true) ?
+          <nav className='navBar'>
+            <ul >
+              <li> <Link to={`/`}>Home</Link> </li>
+              <li> <Link to={`/gallery`}>Add itmes</Link> </li>
+              <li> <Link to={`/about`}>Account</Link> </li>
+              {/* <li> {state.user.firstName} <button onClick={logoutHandler}>Logout</button> </li> */}
+            </ul>
+          </nav>
+          : null}
 
+
+
+      {/* for admin */}
       {
         (state.isLogin === 1) ?
           <nav className='navBar'>
-            <ul > 
+            <ul >
               <li> <Link to={`/`}>Home</Link> </li>
               <li> <Link to={`/gallery`}>Add itmes</Link> </li>
               <li> <Link to={`/about`}>Account</Link> </li>
@@ -131,7 +148,7 @@ function App() {
       }
 
       {(state.isLogin === 1) ?
-
+        // adminroute
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
@@ -140,12 +157,23 @@ function App() {
         </Routes>
         : null}
 
+        {/* userroute */}
+      {(state.isLogin === true) ?
+
+        <Routes>
+          <Route path="/" element={<Userhome />} />
+          <Route path="about" element={<Userabout />} />
+          <Route path="gallery" element={<Usercart />} />
+          <Route path="*" element={<Navigate to="/" replace={true} />} />
+        </Routes>
+        : null}
+
+
+
       {(state.isLogin === false) ?
         <Routes>
           <Route path="/" element={<Login />} />
-
           {/* <Route path="/" element={<Front />} /> */}
-
           <Route path="signup" element={<Signup />} />
           <Route path="*" element={<Navigate to="/" replace={true} />} />
         </Routes>
