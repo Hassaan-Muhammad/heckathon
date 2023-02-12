@@ -4,7 +4,7 @@ import {productModel} from './../dbRepo/model.mjs'
 
 const router = express.Router()
 
-
+//csd
 
 router.post('/product', (req, res) => {
 
